@@ -1,0 +1,12 @@
+.container {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.h5{
+  color: rgb(47, 47, 47);
+  font-weight: 400;
+  font-size: 14px;
+}

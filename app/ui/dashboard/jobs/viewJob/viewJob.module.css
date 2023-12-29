@@ -1,0 +1,183 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(40, 40, 40);
+}
+
+.topBar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgb(174, 174, 174);
+}
+
+.topBarButtons{
+    display: flex;
+    gap: 10px;
+}
+
+.jobTitleContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgb(174, 174, 174);
+    background-color: white;
+}
+
+.jobTitleContent{
+    display: flex;
+    gap: 20px;
+}
+
+.jobIcon{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(203, 186, 226);
+    color: rgb(111, 65, 149);
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jobTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.status{
+    background-color: rgb(205, 180, 221);
+    color: rgb(84, 53, 104);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.desc{
+    display: flex;
+    gap: 10px;
+}
+
+.otherDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.owner{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dateCreated{
+    display: flex;
+    align-items: center;
+}
+
+.date{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.date h4{
+    font-weight: 400;
+}
+
+.jobDescContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.jobDescTitle{
+    padding: 20px;
+    border-bottom: 1px solid rgb(174, 174, 174);
+}
+
+.jobDescWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.jobDesc{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.jobDescPane{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jobDescContent{
+    width: 50%;
+    padding: 5px 0;
+}
+
+.jobDescContent h4{
+    font-weight: 600;
+}
+
+.miniNav{
+    background-color: rgb(214, 214, 233);
+    width: 100%;
+}
+
+.miniNavItem{
+    padding: 20px;
+    border-bottom: 2px solid rgb(62, 53, 104);
+    width: 200px;
+}
+
+.submitCandidate{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.submitCandidateButtons{
+    display: flex;
+    gap: 10px;
+}
+
+.hiringPipeline{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pipelineNav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(225, 225, 235);
+    padding: 10px 0;
+
+}

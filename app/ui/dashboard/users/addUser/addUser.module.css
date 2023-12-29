@@ -1,0 +1,93 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 50px;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.userForm{
+  width: 60%;
+}
+
+.help{
+  flex: 2;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form input,
+.form textarea,
+.form select {
+  padding: 10px;
+  background-color: var(--bgSoft);
+  color: var(--text);
+  border: 1px solid #c8cbd0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.quill{
+  padding: 10px;
+  background-color: var(--bgSoft);
+  color: var(--text);
+  /* border: 1px solid #2e374a; */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form input, .form select {
+  width: 49%;
+}
+
+.form textarea{
+  width: 100%;
+}
+
+.form button{
+  width: 100%;
+  padding: 20px;
+  background-color: var(--textSoft);
+  color: var(--bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form button:hover{
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+.showPassword{
+  width: 49%;
+  display: flex;
+}
+
+.showPassword input{
+  width:90%;
+
+}
+
+.showPassword button{
+  width:10%;
+  padding: 1px;
+  background-color: rgb(201, 201, 201);
+  color: rgb(82, 82, 82);
+  height: 80%;
+}
+
+.showPassword button:hover{
+  background-color: rgb(185, 185, 185);
+  color: rgb(82, 82, 82);
+}

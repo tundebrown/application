@@ -1,0 +1,52 @@
+.container {
+  flex: 1.3;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 40px;
+  padding: 30px 0 30px 30px;
+  color: rgb(59, 59, 59);
+}
+
+.line{
+  height: 100%;
+  width: 1px;
+  background-color: rgb(181, 181, 181);
+}
+
+.interviewTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.listTop{
+  margin-bottom: 30px ;
+}
+
+.listTopTitle{
+  display: flex;
+  gap: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.listTopTitle h5{
+  font-weight: 600;
+  color: rgb(115, 115, 115);
+}
+
+.list {
+  list-style: none;
+  padding-top: 20px;
+}
+
+.filter{
+  display: flex;
+}
+
+.cat {
+  color: rgb(117, 117, 117);;
+  font-weight: 300;
+  font-size: 13px;
+  margin: 10px 0px;
+}

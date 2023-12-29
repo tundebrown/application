@@ -1,0 +1,96 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion {
+    width: 80%;
+    border: 1px solid rgb(206, 206, 206);
+  }
+  
+  .accordionSection {
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+  }
+  
+  .accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    padding: 10px;
+    height: 50px;
+    border: 1px solid rgb(206, 206, 206);
+
+}
+
+.accordionHeader h4{
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.action{
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .accordionContent {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .workWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: white;
+  }
+
+
+  .jobDescContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.jobDescTitle{
+    padding: 20px;
+    border-bottom: 1px solid rgb(174, 174, 174);
+}
+
+.jobDescWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.jobDesc{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.jobDescPane{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jobDescContent{
+    width: 50%;
+    padding: 5px 0;
+}
+
+.jobDescContent h4{
+    font-weight: 600;
+}

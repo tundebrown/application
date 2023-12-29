@@ -1,0 +1,17 @@
+.button{
+    display: flex;
+    padding: 10px 20px;
+    background-color: rgb(81, 46, 220);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: rgb(126, 98, 240);
+}

@@ -1,0 +1,97 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 50px;
+  border-radius: 10px;
+  margin: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
+  gap: 30px;
+  color: rgb(52, 52, 52);
+}
+
+.jobForm{
+  flex: 3;
+  width: 50%;
+}
+
+.help{
+  flex: 2;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+.formInput{
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form label{
+  font-size: 13px;
+  color: var(--textSoft);
+  font-weight: 300;
+}
+
+.form label span{
+  color: rgb(194, 75, 75);
+}
+
+.form input,
+.form textarea,
+.form select {
+  padding: 10px;
+  background-color: var(--bgSoft);
+  color: var(--text);
+  border: 1px solid #c8cbd0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.quill{
+  padding: 10px;
+  background-color: var(--bgSoft);
+  color: var(--text);
+  /* border: 1px solid #2e374a; */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form input, .form select {
+  width: 100%;
+}
+
+.form textarea{
+  width: 100%;
+}
+
+.inputContainer{
+  width: 100%;
+}
+
+.inputContainer input{
+  border: none;
+}
+
+/* .form button{
+  width: 100%;
+  padding: 20px;
+  background-color: var(--textSoft);
+  color: var(--bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form button:hover{
+  background-color: var(--text);
+  color: var(--bg);
+} */

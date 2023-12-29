@@ -1,0 +1,139 @@
+.container {
+  padding: 5px 20px;
+  /* border-radius: 10px; */
+  /* background-color: var(--bgSoft); */
+  background-color: #150147;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer{
+  flex: 1;
+  padding-right: 10px;
+}
+
+.title {
+  color: var(--textSoft);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex:5;
+  align-self: flex-end;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  color: var(--text);
+}
+
+.input:focus{
+  outline: none;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: var(--bgSoft);
+}
+
+.icons > *:hover{
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.navcontainer{
+  /* position: sticky; */
+  top: 40px;
+  width: 100%;
+}
+
+.cnavitem {
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--bgSoft);
+}
+
+.navitem:hover,
+.active {
+  border-bottom: 1px solid var(--bgSoft);
+}
+
+.user{
+  display: flex;
+  align-items: center;
+
+}
+
+.userImage{
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userDetail{
+  display: flex;
+  flex-direction: column;
+}
+
+.username{
+  font-weight: 500;
+}
+
+.userTitle{
+  font-size: 12px;
+  color: var(--textSoft);
+}
+
+.navList{
+  display: flex;
+  flex-direction: row;
+  flex: 10;
+}
+
+.cat{
+  color: var(--textSoft);
+  font-weight: bold;
+  font-size: 13px;
+  margin: 10px 0px;
+}
+
+.logout{
+  padding: 2px 10px;
+  /* margin: 5px 0px; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: none;
+  border: none;
+  color: var(--bgSoft);
+  width: 100%;
+}
+
+.logout:hover{
+  background-color: white;
+  color: var(--textSoft);
+}

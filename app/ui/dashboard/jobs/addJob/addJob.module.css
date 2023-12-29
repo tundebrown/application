@@ -1,0 +1,105 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 50px;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  gap: 30px;
+}
+
+.jobForm{
+  flex: 3;
+  width: 70%;
+}
+
+.help{
+  flex: 2;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form input,
+.form textarea,
+.form select {
+  padding: 10px;
+  background-color: var(--bgSoft);
+  color: var(--text);
+  border: 1px solid #c8cbd0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.quill{
+  padding: 10px;
+  background-color: var(--bgSoft);
+  color: var(--text);
+  /* border: 1px solid #2e374a; */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form input, .form select {
+  width: 49%;
+}
+
+.form textarea{
+  width: 100%;
+}
+.hiringStage{
+  width: 100%;
+}
+
+.inputContainer{
+  width: 49%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+}
+
+.inputContainerCheckBox{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.hiringInput{
+  display: inline;
+  width: 10%;
+}
+
+.hiringInput input{
+  margin: 5px;
+  padding: 0;
+  width: 10%;
+}
+
+.inputContainer input, .inputContainer select{
+  margin-left: 5px;
+  flex: 4;
+}
+
+
+
+.form button{
+  width: 100%;
+  padding: 20px;
+  background-color: var(--textSoft);
+  color: var(--bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form button:hover{
+  background-color: var(--text);
+  color: var(--bg);
+}

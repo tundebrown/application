@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapper {
+    flex: 9;
+}
+
+.childContainer{
+    width: 100%;
+}
+
+.noIntContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(50, 50, 50);
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.noIntContent p{
+    color: rgb(150, 150, 150);
+}
+
+.intContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.topBar{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 30px 10px 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(183, 183, 183);
+}
+
+.topBarRight{
+    display: flex;
+    gap: 20px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg);
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid gray;
+  }
+  
+  .input {
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+  }
+
+  .input:focus {
+    outline: none;
+  }
+  
+  
+
+.filter{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filterSelect{
+    height: 30px;
+    width: 150px;
+    cursor: pointer;
+    border: 1px solid rgb(185, 185, 185);
+}
+
+.main{
+    width: 100%;
+}
+
+.content{
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    border: 1px solid rgb(179, 179, 179);
+    gap: 20px;
+}
+
+.content:hover{
+    background-color: rgb(231, 233, 243);
+}
+
+.dateContainer{
+    flex: 1;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 10px;
+}
+
+.date{
+    background-color: rgb(81, 46, 220);
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px 10px 0 0;
+}
+
+.day{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    padding: 3px;
+}
+
+.intInfo{
+    flex: 4;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.intInfo span{
+    color: rgb(58, 59, 85);
+}
+
+.intDesc{
+    flex: 6;
+}
+
+.action{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

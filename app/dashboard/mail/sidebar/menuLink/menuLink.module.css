@@ -1,0 +1,47 @@
+.container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0px;
+}
+
+
+.container:hover,
+.active {
+  background-color: #cfd0e9;
+}
+
+.container:hover,
+.active .icon{
+  color: vaR(--text);
+
+}
+
+.container:hover,
+.active .h5{
+  color: vaR(--text);
+
+}
+
+.icon{
+  font-size: 18px;
+  color: rgb(47, 47, 47);
+}
+
+.line{
+  height: 50px;
+  width: 1px;
+  background-color: rgb(187, 187, 187);
+}
+
+.h5{
+  color: rgb(47, 47, 47);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.content{
+  display: flex;
+  gap: 5px;
+}

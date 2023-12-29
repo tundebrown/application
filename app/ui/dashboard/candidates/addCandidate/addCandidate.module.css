@@ -1,0 +1,209 @@
+.container {
+    background-color: var(--bgSoft);
+    padding: 50px;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .userForm{
+    width: 70%;
+  }
+  
+  .jobForm{
+    flex: 3;
+  }
+  
+  .help{
+    flex: 2;
+  }
+  
+  .form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .form input,
+  .form textarea,
+  .form select {
+    padding: 10px;
+    background-color: var(--bgSoft);
+    color: var(--text);
+    border: 1px solid #c8cbd0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .quill{
+    padding: 10px;
+    background-color: var(--bgSoft);
+    color: var(--text);
+    /* border: 1px solid #2e374a; */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .form input, .form select {
+    width: 49%;
+  }
+  
+  .form textarea{
+    width: 100%;
+  }
+  
+  .inputContainer{
+    width: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+  }
+
+  .inputContainerTwo{
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+  }
+
+  .inputInnerContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgb(223, 227, 234);
+    border-radius: 10px;
+    margin: 10px;
+    gap: 10px;
+    color: rgb(71, 71, 71);
+  }
+
+  .inputInnerHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inputInnerHeader div{
+    display: flex;
+    gap: 10px;
+  }
+
+  .inputInnerContent{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contentDetail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+  }
+  
+  .inputContainer input, .inputContainer select{
+    margin-left: 5px;
+    flex: 4;
+  }
+  
+  .submitButton{
+    width: 100%;
+    padding: 20px;
+    background-color: var(--textSoft);
+    color: var(--bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover{
+    background-color: var(--text);
+    color: var(--bg);
+  }
+
+  .inputButton{
+    display: flex;
+    padding: 8px 15px;
+    background-color: rgb(249, 249, 249);
+    color: rgb(37, 37, 37);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(167, 167, 167);
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .inputButton:hover{
+    border-color: rgb(203, 203, 203);
+  }
+
+
+  .modal{
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.491);
+  }
+
+  .modalWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modalContainer{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    color: rgb(87, 87, 87);
+  }
+
+  .modalLine{
+    height: 10px;
+    width: 100%;
+    border-bottom: 1px solid rgb(179, 179, 179);
+  }
+
+  .workInputContainer{
+    padding: 10px;
+    width: 100%;
+  }
+
+  .workInput{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+  }
+
+  .workInput input{
+    width: 100%;
+  }
+
+  .workInputButton{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
