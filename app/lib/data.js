@@ -130,7 +130,7 @@ export const fetchTotalJobs = async () => {
 
   try {
     connectToDB();
-    const countJob = await Job.find({ status: "active" }).count();
+    const countJob = await Job.find({ status: "open" }).count();
     // const users = await User.find({ username: { $regex: regex } })
     // const count = await User.find({$and: [{ username: { $regex: regex }, }, { isAdmin: true }]} ).count();
     // const users = await User.find({$and: [{ username: { $regex: regex }, }, { isAdmin: true }]})
@@ -138,7 +138,7 @@ export const fetchTotalJobs = async () => {
     return { countJob };
   } catch (err) {
     console.log(err);
-    throw new Error(`Failed to fetch total active jobs!${err}`);
+    throw new Error(`Failed to fetch total open jobs!${err}`);
   }
 };
 
