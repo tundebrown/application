@@ -4,17 +4,18 @@ import styles from "@/app/ui/dashboard/jobs/addJob/addJob.module.css";
 // import { auth, signOut } from "@/app/auth";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import PhoneInput from "react-phone-number-input";
+// import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css"; // Import the styles
 import Image from "next/image";
-import { MdArrowRight } from "react-icons/md";
+// import { MdArrowRight } from "react-icons/md";
 // import { useState } from "react";
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+// import { FaArrowRight } from "react-icons/fa";
 
 const AddJobPage = () => {
-  // const [value, setValue] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [value, setValue] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState();
   const years = Array.from({ length: 31 }, (_, index) => index);
 
   // const { user } = await auth();
@@ -28,7 +29,7 @@ const AddJobPage = () => {
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
 
-    console.log(selectedOption)
+    console.log(selectedOption);
   };
 
   const handleFileChange = (e) => {
@@ -160,110 +161,29 @@ const AddJobPage = () => {
             <option value="hourly">Hourly</option>
           </select>
           <div className={styles.inputContainer}>
-              <label htmlFor="skills">Skills</label>
-          <select name="skills" id="skills" required>
-            <option value="UX Design">UX Design</option>
-            <option value="Frontend / Fullstack Development">Frontend / Fullstack Development</option>
-            <option value="Backend Development">Backend Development</option>
-            <option value="Art Direction, Branding & Graphic">Art Direction, Branding & Graphic</option>
-          </select>
+            <label htmlFor="skills">Skills</label>
+            <select name="skills" id="skills" required>
+              <option value="UX Design">UX Design</option>
+              <option value="Frontend / Fullstack Development">
+                Frontend / Fullstack Development
+              </option>
+              <option value="Backend Development">Backend Development</option>
+              <option value="Art Direction, Branding & Graphic">
+                Art Direction, Branding & Graphic
+              </option>
+            </select>
           </div>
-          
-          <input type="text" placeholder="Educational Qualification" name="educationQualification" />
-          <input type="text" placeholder="Educational Specialization" name="educationSpecialization" />
-          <div className={styles.inputContainer}>
-              <label htmlFor="hiringPipeline">Select Hiring Stages: </label>
-              <select name="hiringPipeline" id="hiringPipeline" required onChange={handleSelectChange}>
-            <option value="masterPipeline">Master Hiring Pipeline</option>
-            <option value="customPipeline">Custom Hiring Pipeline</option>
-          </select>
-          
-          </div>
-          {selectedOption === 'masterPipeline' && (
 
-            <div className={styles.inputContainerCheckBox}>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Applied</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Contacted</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Interview Scheduled</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Interview Not Attended</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Interview Rescheduled</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Rejected</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>On Hold</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Selected</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" checked/>
-              <label>Offered</label>
-            </div>
-
-          </div>
-            )}
-
-          {selectedOption === 'customPipeline' && (
-
-            <div className={styles.inputContainerCheckBox}>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="applied" value="applied"/>
-              <label>Applied</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="contacted" value="contacted"/>
-              <label>Contacted</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="interviewScheduled" value="interviewScheduled"/>
-              <label>Interview Scheduled</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="interviewNotAttended" value="interviewNotAttended"/>
-              <label>Interview Not Attended</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="interviewRescheduled" value="interviewRescheduled"/>
-              <label>Interview Rescheduled</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="rejected" value="rejected"/>
-              <label>Rejected</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="onHold" value="onHold"/>
-              <label>On Hold</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="selected" value="selected"/>
-              <label>Selected</label>
-            </div>
-            <div className={styles.hiringInput}>
-              <input type="checkbox" name="offered" value="offered"/>
-              <label>Offered</label>
-            </div>
-
-          </div>
-            )}
+          <input
+            type="text"
+            placeholder="Educational Qualification"
+            name="educationQualification"
+          />
+          <input
+            type="text"
+            placeholder="Educational Specialization"
+            name="educationSpecialization"
+          />
           {/* <input
             type="text"
             placeholder="Specify Required Skills"
@@ -272,7 +192,7 @@ const AddJobPage = () => {
           /> */}
           {/* <GetUser /> */}
           {/* <input type="hidden" placeholder="Account Manager" name="accountManager" value={user.username}/> */}
-          {/* <input type="hidden" placeholder="Job Description" value={value} name="jobDesc" /> */}
+          
           <input
             type="hidden"
             placeholder="Job Id"
@@ -280,13 +200,7 @@ const AddJobPage = () => {
             name="jobOpeningId"
             required
           />
-          <textarea
-            required
-            name="jobDesc"
-            id="desc"
-            rows="16"
-            placeholder="Job description"
-          ></textarea>
+          
           <input
             type="text"
             placeholder="Company / Brand Name"
@@ -299,7 +213,20 @@ const AddJobPage = () => {
             name="companyWebsite"
             required
           />
-          <div className={styles.inputContainer}>
+          
+            <div className={styles.inputContainer}>
+              <label htmlFor="hiringPipeline">Select Hiring Stages: </label>
+              <select
+                name="hiringPipeline"
+                id="hiringPipeline"
+                required
+                onChange={handleSelectChange}
+              >
+                <option value="masterPipeline">Master Hiring Pipeline</option>
+                <option value="customPipeline">Custom Hiring Pipeline</option>
+              </select>
+            </div>
+            <div className={styles.inputContainer}>
             <label htmlFor="companyLogo">Company Logo</label>
             <input
               type="file"
@@ -311,8 +238,7 @@ const AddJobPage = () => {
               onChange={handleFileChange}
               required
             />
-          </div>
-          <div className={styles.inputContainer}>
+            <div className={styles.inputContainer} style={{width: "30%", paddingLeft: "5px"}}>
             {/* Show the selected image preview */}
             {previewImage && (
               <Image
@@ -321,7 +247,7 @@ const AddJobPage = () => {
                 src={previewImage}
                 alt="Selected Preview"
                 style={{
-                  maxWidth: "15%",
+                  maxWidth: "20%",
                   justifyContent: "flex-start",
                   alignContent: "start",
                 }}
@@ -329,8 +255,121 @@ const AddJobPage = () => {
             )}
             {fileSizeError && <p style={{ color: "red" }}>{fileSizeError}</p>}
           </div>
+          </div>
+            {selectedOption === "masterPipeline" && (
+              <div className={styles.inputContainerCheckBox}>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Applied</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Contacted</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Interview Scheduled</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Interview Not Attended</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Interview Rescheduled</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Rejected</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>On Hold</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Selected</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" checked />
+                  <label>Offered</label>
+                </div>
+              </div>
+            )}
+  
+            {selectedOption === "customPipeline" && (
+              <div className={styles.inputContainerCheckBox}>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" name="applied" value="applied" />
+                  <label>Applied</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" name="contacted" value="contacted" />
+                  <label>Contacted</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input
+                    type="checkbox"
+                    name="interviewScheduled"
+                    value="interviewScheduled"
+                  />
+                  <label>Interview Scheduled</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input
+                    type="checkbox"
+                    name="interviewNotAttended"
+                    value="interviewNotAttended"
+                  />
+                  <label>Interview Not Attended</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input
+                    type="checkbox"
+                    name="interviewRescheduled"
+                    value="interviewRescheduled"
+                  />
+                  <label>Interview Rescheduled</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" name="rejected" value="rejected" />
+                  <label>Rejected</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" name="onHold" value="onHold" />
+                  <label>On Hold</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" name="selected" value="selected" />
+                  <label>Selected</label>
+                </div>
+                <div className={styles.hiringInput}>
+                  <input type="checkbox" name="offered" value="offered" />
+                  <label>Offered</label>
+                </div>
+              </div>
+            )}
+          
           {/* <p style={{fontSize: "12px"}}>Description</p> */}
-          {/* <ReactQuill theme="snow" value={value} onChange={setValue} className={styles.quill}/>- */}
+          <div className={styles.inputContainer} style={{flexDirection: "column", width: "100%", alignItems: "flex-start"}}>
+            <label htmlFor="jobDesc" style={{marginTop:"20px"}}>Job Description</label>
+            {/* <textarea
+              required
+              name="jobDesc"
+              id="desc"
+              rows="16"
+              placeholder="Job description"
+            ></textarea> */}
+            <input type="hidden" placeholder="Job Description" value={value} name="jobDesc" />
+            <ReactQuill
+            theme="snow"
+            value={value}
+            onChange={setValue}
+            className={styles.quill}
+          />
+          </div>
+          
+          <p>-</p>
           <button type="submit">Submit</button>
         </form>
       </div>

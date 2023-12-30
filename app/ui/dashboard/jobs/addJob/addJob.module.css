@@ -4,12 +4,14 @@
   border-radius: 10px;
   margin: 20px;
   display: flex;
+  justify-content: center;
   gap: 30px;
 }
 
 .jobForm{
-  flex: 3;
-  width: 70%;
+  width: 80%;
+  background-color: white;
+  padding: 50px;
 }
 
 .help{
@@ -28,7 +30,7 @@
 .form textarea,
 .form select {
   padding: 10px;
-  background-color: var(--bgSoft);
+  background-color: white;
   color: var(--text);
   border: 1px solid #c8cbd0;
   border-radius: 5px;
@@ -37,12 +39,13 @@
 
 .quill{
   padding: 10px;
-  background-color: var(--bgSoft);
+
   color: var(--text);
   /* border: 1px solid #2e374a; */
   border-radius: 5px;
   margin-bottom: 10px;
   width: 100%;
+
 }
 
 .form input, .form select {
@@ -69,17 +72,25 @@
   display: flex;
   flex-wrap: wrap;
   font-size: 12px;
+  gap: 10px;
 }
 
 .hiringInput{
-  display: inline;
-  width: 10%;
+  width: 15%;
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
 }
 
 .hiringInput input{
-  margin: 5px;
+  flex: 1;
+  /* margin: 5px;
   padding: 0;
-  width: 10%;
+  width: 10%; */
+}
+
+.hiringInput label{
+  flex: 20;
 }
 
 .inputContainer input, .inputContainer select{
