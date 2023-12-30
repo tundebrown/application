@@ -103,12 +103,12 @@ const SingleJobPage = async ({ params }) => {
             ${job.minSalary} - ${job.maxSalary}
           </p>{" "}
           <br />
-          <p>
+          <div>
             <span>
               <MdDescription />
             </span>{" "}
-            {job.jobDesc}{" "}
-          </p>{" "}
+            <div dangerouslySetInnerHTML={{ __html: job.jobDesc }} />
+          </div>{" "}
           <br />
         </div>
         <div style={{marginTop: "20px"}}>

@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import styles from "./page.module.css";
 import ButtonLight from "../../widgets/buttonLight/page";
 import { MdAdd, MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import Link from "next/link";
 
-const CandidateDetails = ({ workExperiences, educationHistory }) => {
+const CandidateDetails = ({ workExperiences, educationHistory, id }) => {
   const [isActive, setIsActive] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
@@ -28,9 +29,11 @@ const CandidateDetails = ({ workExperiences, educationHistory }) => {
         <div className={styles.accordionHeader}>
           <h4 onClick={toggleAccordion}>Work History</h4>
           <div className={styles.action}>
+            <Link href={`/dashboard/candidates/${id}#experience`}>
             <ButtonLight>
               <MdAdd /> Add Experience
             </ButtonLight>
+            </Link>
             {isActive ? (
               <MdKeyboardArrowDown onClick={toggleAccordion} />
             ) : (
@@ -68,12 +71,14 @@ const CandidateDetails = ({ workExperiences, educationHistory }) => {
         <div className={styles.accordionHeader}>
           <h4 onClick={toggleAccordion2}>Education</h4>
           <div className={styles.action}>
+          <Link href={`/dashboard/candidates/${id}#education`}>
             <ButtonLight>
               <MdAdd /> Add Education
             </ButtonLight>
+            </Link>
             {isActive2 ? (
               <MdKeyboardArrowDown onClick={toggleAccordion2} />
-            ) : (
+              ) : (
               <MdKeyboardArrowUp onClick={toggleAccordion2} />
             )}
           </div>

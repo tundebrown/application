@@ -2,22 +2,24 @@
 import { addJob } from "@/app/lib/actions";
 import styles from "@/app/ui/dashboard/jobs/addJob/addJob.module.css";
 // import { auth, signOut } from "@/app/auth";
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 // import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css"; // Import the styles
 import Image from "next/image";
+import dynamic from 'next/dynamic';
 // import { MdArrowRight } from "react-icons/md";
 // import { useState } from "react";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+// Load ReactQuill dynamically on the client side
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 // import { FaArrowRight } from "react-icons/fa";
 
 const AddJobPage = () => {
   const [value, setValue] = useState("");
   // const [phoneNumber, setPhoneNumber] = useState();
   const years = Array.from({ length: 31 }, (_, index) => index);
-
   // const { user } = await auth();
   const uniqueValue = `ATP_${uuidv4()}`;
 
@@ -361,6 +363,7 @@ const AddJobPage = () => {
               placeholder="Job description"
             ></textarea> */}
             <input type="hidden" placeholder="Job Description" value={value} name="jobDesc" />
+
             <ReactQuill
             theme="snow"
             value={value}

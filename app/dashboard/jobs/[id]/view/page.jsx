@@ -9,6 +9,7 @@ import {
   MdArrowRightAlt,
   MdCopyAll,
   MdDelete,
+  MdDocumentScanner,
   MdEdit,
   MdFacebook,
   MdKeyboardArrowRight,
@@ -29,6 +30,7 @@ import Loading from "@/app/ui/widgets/loading/page";
 
 const View = ({ params }) => {
   const [activeComponent, setActiveComponent] = useState("allCandidates");
+  const [modalVisible, setModalVisible] = useState(false);
   const { id } = params;
   const [job, setJob] = useState(null);
 
@@ -87,7 +89,7 @@ const View = ({ params }) => {
   };
 
   const copyToClipboard = (id) => {
-    navigator.clipboard.writeText(`https://ats-mauve.vercel.app/page/jobs/activejobs/apply/${id}`)
+    navigator.clipboard.writeText(`https://application-black-nine.vercel.app/page/jobs/activejobs/apply/${id}`)
       .then(() => {
         console.log('Text copied to clipboard:', id);
         alert(`Copied successfully`);
@@ -207,13 +209,28 @@ const View = ({ params }) => {
               <div className={styles.jobDescContent}>
                 <span>{job.skills}</span>
               </div>
+              <div className={styles.jobDescContent}>
+                <h4>Job Description</h4>
+              </div>
+              <div className={styles.jobDescContent}>
+                <span>
+              <MdDocumentScanner onClick={() => setModalVisible(true)} style={{fontSize:"20px", cursor:"pointer", color:"#6699ff"}}/>
+            </span>
+              </div>
+              {modalVisible && (
+            <Description
+              onClose={() => setModalVisible(false)}
+              description={job.jobDesc}
+              title={job.title}
+            />
+          )}
             </div>
             <div className={styles.jobDescPane}>
               <div className={styles.jobDescContent}>
                 <h4>Educational Specialization</h4>
               </div>
               <div className={styles.jobDescContent}>
-                <span>{job.educationSpecializaton}</span>
+                <span>{job.educationSpecialization}</span>
               </div>
               <div className={styles.jobDescContent}>
                 <h4>Address</h4>
@@ -371,6 +388,25 @@ const View = ({ params }) => {
       </div>
     </div>
   );
+};
+
+const Description = ({ onClose, description, title }) => {
+  return (
+    <div className={styles.modal}>
+    <div className={styles.modalWrapper}>
+      <div className={styles.modalContainer}>
+        <h3>Description of {title}</h3>
+        <div className={styles.modalLine}></div>
+        <div className={styles.workInputContainer}>
+        <div dangerouslySetInnerHTML={{ __html: description }}/>
+          <div className={styles.workInputButton}>
+              <ButtonLight onclick={onClose}>Close</ButtonLight>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  )
 };
 
 export default View;

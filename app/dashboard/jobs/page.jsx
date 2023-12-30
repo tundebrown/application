@@ -73,7 +73,7 @@ const JobsPage = ({ searchParams }) => {
   const textToCopy = data?.jobs.jobOpeningId;
 
   const copyToClipboard = (jobId) => {
-    navigator.clipboard.writeText(`https://ats-mauve.vercel.app/page/jobs/activejobs/apply/${jobId}`)
+    navigator.clipboard.writeText(`https://application-black-nine.vercel.app/page/jobs/activejobs/apply/${jobId}`)
       .then(() => {
         console.log('Text copied to clipboard:', jobId);
         alert(`Copied successfully`);

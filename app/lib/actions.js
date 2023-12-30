@@ -115,7 +115,6 @@ export const updateUser = async (formData) => {
 //Create Candidate
 
 export const addCandidate = async (formData) => {
-  console.log(formData)
   const formDataArray = Array.from(formData.entries());
 
 const filteredWorkItems = formDataArray
@@ -148,7 +147,6 @@ const filteredWorkItems = formDataArray
     };
   });
 
-console.log(filteredWorkItems);
   const {
     firstname,
     lastname,
@@ -177,6 +175,7 @@ console.log(filteredWorkItems);
   } else {
     currentHiringStage = "None"
   }
+
   try {
     connectToDB();
 
@@ -217,7 +216,40 @@ console.log(filteredWorkItems);
 //Update Candidate
 
 export const updateCandidate = async (formData) => {
+  const formDataArray = Array.from(formData.entries());
+
+const filteredWorkItems = formDataArray
+  .filter(([name, value]) => name.startsWith('workExperience'))
+  .map(([name, value]) => {
+    const values = value.split(',');
+
+    // Assuming the order is title, company, location
+    const [title, company, location] = values;
+
+    return {
+      title,
+      company,
+      location,
+    };
+  });
+
+  const filteredEducationItems = formDataArray
+  .filter(([name, value]) => name.startsWith('educationHistory'))
+  .map(([name, value]) => {
+    const values = value.split(',');
+
+    // Assuming the order is title, company, location
+    const [collegeName, qualification, grade] = values;
+
+    return {
+      collegeName,
+      qualification,
+      grade,
+    };
+  });
+
   const {
+    id,
     firstname,
     lastname,
     email,
@@ -232,14 +264,20 @@ export const updateCandidate = async (formData) => {
     currentSalary,
   } = Object.fromEntries(formData);
 
+  const res = await uploadPhoto(formData, "resume", "img", "raw")
+  const actualFilePath = res.filename
+
   try {
     connectToDB();
 
     const updateFields = {
+      id,
       firstname,
       lastname,
       email,
-      img,
+      workExperience: filteredWorkItems,
+      educationHistory: filteredEducationItems,
+      img: actualFilePath,
       phone,
       address,
       experience,
@@ -258,7 +296,7 @@ export const updateCandidate = async (formData) => {
     await Candidate.findByIdAndUpdate(id, updateFields);
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to update candidate!");
+    throw new Error(`Failed to update candidate! ${err}`);
   }
 
   revalidatePath("/dashboard/candidates");

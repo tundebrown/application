@@ -141,7 +141,7 @@ const View = ({params}) => {
 
           {/* Conditionally render the active component */}
           {/* <MasterHiringPipeline>Page</MasterHiringPipeline> */}
-      {activeComponent === 'allDetails' && <CandidateDetails workExperiences={candidate?.workExperience} educationHistory={candidate.educationHistory}/>}
+      {activeComponent === 'allDetails' && <CandidateDetails workExperiences={candidate?.workExperience} educationHistory={candidate.educationHistory} id={id}/>}
       {activeComponent === 'applied' && <AssignedJobs title={job?.title} date={job?.targetDate} company={job?.companyName} stage={candidate.hiringStage}/>}
       {activeComponent === 'interviewScheduled' && <CandidateHistory stage={activeComponent}/>}
 </div>

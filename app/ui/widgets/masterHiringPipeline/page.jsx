@@ -43,6 +43,8 @@ const MasterHiringPipeline = ({ candidates, targetJobId, targetStage }) => {
           </Link>
         );
       })}
+
+      {!filteredCandidates && <div>No Candidates for this stage</div>}
     </div>
   );
 };

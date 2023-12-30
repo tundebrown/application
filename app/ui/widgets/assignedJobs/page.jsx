@@ -6,6 +6,7 @@ import IconButton from "../iconButton/page";
 const AssignedJobs = ({title, company, date, stage }) => {
   return (
     <div className={styles.container}>
+      {title && 
       <div className={styles.wrapper}>
         <div className={styles.iconDetails}>
           <div className={styles.icon}>
@@ -31,6 +32,8 @@ const AssignedJobs = ({title, company, date, stage }) => {
           </IconButton>
         </div>
       </div>
+      }
+      {!title && <div>No Assigned job for this candidate</div>}
     </div>
   );
 };

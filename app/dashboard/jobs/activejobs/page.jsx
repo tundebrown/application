@@ -1,36 +1,58 @@
+"use client"
 import Link from "next/link";
 import styles from "@/app/ui/dashboard/jobs/activejobs/activejobs.module.css";
 import Search from "@/app/ui/dashboard/search/search";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
-import { deleteJob } from "@/app/lib/actions";
-import { fetchJobs } from "@/app/lib/data";
+// import { deleteJob } from "@/app/lib/actions";
+// import { fetchJobs } from "@/app/lib/data";
 import {
-  MdAdd,
-  MdArrowRight,
-  MdInfo,
   MdLocationCity,
-  MdMyLocation,
-  MdOutlineArrowDropDown,
   MdOutlineArrowForward,
   MdOutlineDelete,
-  MdOutlineEdit,
   MdOutlineMenu,
   MdOutlineViewAgenda,
   MdWork,
 } from "react-icons/md";
 import Image from "next/image";
+import Loading from "@/app/ui/widgets/loading/page";
+import axios from "axios";
+import { useEffect, useState } from "react";
 // import { useState } from "react";
 
-const ActiveJobsPage = async ({ searchParams }) => {
+const ActiveJobsPage = ({ searchParams }) => {
+  // const q = searchParams?.q || "";
+  // const page = searchParams?.page || 1;
+  // const { count, jobs } = await fetchJobs(q, page);
+
+  const [jobs, setJobs] = useState(null);
+  const [count, setCount] = useState(null);
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
-  const { count, jobs } = await fetchJobs(q, page);
+  // const { count, jobs } = await fetchJobs(q, page);
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/job/getJobs', {
+          params: {
+            q: q, // replace with your actual query
+            page: page, // replace with the desired page number
+          },
+        });
 
-  //   const [value, setValue] = useState(30); // Initial value for the range
+        setJobs(response.data.jobs);
+        setCount(response.data.count);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-  //   const handleChange = (event) => {
-  //     setValue(event.target.value);
-  //   };
+    fetchData();
+  }, [q, page]);
+
+  if(!jobs){
+    return <Loading/>
+  }
 
   return (
     <div className={styles.container}>
@@ -155,7 +177,7 @@ const ActiveJobsPage = async ({ searchParams }) => {
 
         <div className={styles.rightContentWrapper}>
         {jobs.map((job) => (
-          <Link className={styles.findDreamJob} key={job.id} href={`/dashboard/jobs/activejobs/apply/${job.id}`}>
+          <Link className={styles.findDreamJob} key={job.id} href={`/dashboard/jobs/activejobs/apply/${job._id}`}>
               
           <div className={styles.rightContent}>
             <div className={styles.rightContentLogo}>

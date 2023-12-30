@@ -5,8 +5,10 @@ import ButtonLight from "@/app/ui/widgets/buttonLight/page";
 import ButtonSeondary from "@/app/ui/widgets/buttonSecondary/page";
 import IconButton from "@/app/ui/widgets/iconButton/page";
 import Loading from "@/app/ui/widgets/loading/page";
+import PDFIcon from "@/app/ui/widgets/pdficon/page";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdAdd, MdDelete, MdEdit, MdOutlineClose, MdOutlineRemoveRedEye } from "react-icons/md";
 import PhoneInput from "react-phone-number-input";
@@ -15,6 +17,8 @@ import "react-phone-number-input/style.css"; // Import the styles
 const AddCandidatePage = ({params}) => {
   const [workExperiences, setWorkExperiences] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
+  const [educationHistory, setEducationHistory] = useState([]);
+  const [modalEVisible, setModalEVisible] = useState(false);
 
   const { id } = params;
   const [candidate, setCandidate] = useState(null);
@@ -24,6 +28,8 @@ const AddCandidatePage = ({params}) => {
       try {
         const response = await axios.get(`/api/candidate/getCandidate/${id}`);
         setCandidate(response.data);
+        setWorkExperiences(response.data.workExperience)
+        setEducationHistory(response.data.educationHistory)
       } catch (error) {
         console.error("Error fetching candidate:", error);
       }
@@ -36,7 +42,7 @@ const AddCandidatePage = ({params}) => {
   const handleAddWorkExperience = (workExperience) => {
     setWorkExperiences([...workExperiences, workExperience]);
     setModalVisible(false);
-    console.log(workExperiences)
+    console.log(workExperience)
   };
 
   const handleDeleteWorkExperience = (index) => {
@@ -54,8 +60,7 @@ const AddCandidatePage = ({params}) => {
   
 
 
-  const [educationHistory, setEducationHistory] = useState([]);
-  const [modalEVisible, setModalEVisible] = useState(false);
+  
 
   console.log(educationHistory)
 
@@ -118,6 +123,11 @@ const AddCandidatePage = ({params}) => {
         Edit Candidate
         <form action={updateCandidate} className={styles.form}>
           <input
+            type="hidden"
+            value={id}
+            name="id"
+          />
+          <input
             type="text"
             placeholder={`First Name: ${candidate?.firstname}`}
             name="firstname"
@@ -137,7 +147,6 @@ const AddCandidatePage = ({params}) => {
           />
           <PhoneInput
             international
-            required
             defaultCountry="" // You can set a default country
             value={phoneNumber}
             onChange={setPhoneNumber}
@@ -148,17 +157,15 @@ const AddCandidatePage = ({params}) => {
             }}
             style={{ width: "49%" }}
           />
-          <input type="text" placeholder={`Address: ${candidate?.address}`} name="address" required />
+          <input type="text" placeholder={`Address: ${candidate?.address}`} name="address" />
           <input
             type="number"
             placeholder={`Experience: ${candidate?.experience}`}
             name="experience"
-            required
           />
           <select
             name="highestQualification"
             id="highestQualification"
-            required
           >
             <option value={candidate.highestQualification}>{`Highest Qualification: ${candidate.highestQualification}`}</option>
             <option value="PhD">PhD</option>
@@ -169,20 +176,17 @@ const AddCandidatePage = ({params}) => {
             type="text"
             placeholder={`Job Title: ${candidate.jobTitle}`}
             name="jobTitle"
-            required
           />
-          <input type="text" placeholder={`Employer: ${candidate.employer}`} name="employer" required />
+          <input type="text" placeholder={`Employer: ${candidate.employer}`} name="employer" />
           <input
             type="number"
             placeholder={`Expected Salary: \$${candidate.expectedSalary}`}
             name="expectedSalary"
-            required
           />
           <input
             type="number"
             placeholder={`Current Salary: \$${candidate.currentSalary}`}
             name="currentSalary"
-            required
           />
           <div className={styles.inputContainer}>
             <label htmlFor="companyLogo">Upload your resume</label>
@@ -192,8 +196,10 @@ const AddCandidatePage = ({params}) => {
               name="img"
               id="img"
               onChange={handleFileChange}
-              required
             />
+            <Link target="_blank" href={candidate.img}>
+                    <PDFIcon />
+                  </Link>
           </div>
           <div className={styles.inputContainerTwo}>
             <ButtonLight
@@ -204,7 +210,7 @@ const AddCandidatePage = ({params}) => {
               <MdAdd /> Add Work Experience
             </ButtonLight>
             {workExperiences.map((workExp, index) => (
-              <div className={styles.inputInnerContainer} key={index}>
+              <div className={styles.inputInnerContainer} key={index} id="experience">
                 <div className={styles.inputInnerHeader}>
                   <h4>Work Experience {index + 1}:</h4>
                   <div>
@@ -243,7 +249,7 @@ const AddCandidatePage = ({params}) => {
               <MdAdd /> Add Education History
             </ButtonLight>
             {educationHistory.map((edHistory, index) => (
-              <div className={styles.inputInnerContainer} key={index}>
+              <div className={styles.inputInnerContainer} key={index} id="education">
                 <div className={styles.inputInnerHeader}>
                   <h4>Education History {index + 1}:</h4>
                   <div>
@@ -292,7 +298,7 @@ const AddCandidatePage = ({params}) => {
           </div> */}
 
           <ButtonSeondary className={styles.submitButton} type="submit">
-            Submit
+            Update
           </ButtonSeondary>
           <p style={{ fontSize: "10px", color: "gray" }}>
             Hint: all inputs mark with * are required

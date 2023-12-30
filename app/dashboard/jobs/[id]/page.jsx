@@ -1,37 +1,65 @@
+"use client"
 import { updateJob } from "@/app/lib/actions";
-import { fetchJob } from "@/app/lib/data";
+// import { fetchJob } from "@/app/lib/data";
 // import PhoneInput from "react-phone-number-input";
 // import "react-phone-number-input/style.css"; // Import the styles
 // import { useState } from "react";
 import styles from "@/app/ui/dashboard/jobs/singleJob/singleJob.module.css";
+import Loading from "@/app/ui/widgets/loading/page";
+import axios from "axios";
 import Image from "next/image";
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
+import { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
+import "react-quill/dist/quill.snow.css";
+import ButtonSeondary from "@/app/ui/widgets/buttonSecondary/page";
+// Load ReactQuill dynamically on the client side
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-const SingleJobPage = async ({ params }) => {
+const SingleJobPage = ({ params }) => {
   // const [phoneNumber, setPhoneNumber] = useState();
-  // const [value, setValue] = useState('');
+  const [job, setJob] = useState(null);
+  const [content, setContent] = useState("");
   const years = Array.from({ length: 31 }, (_, index) => index);
   const { id } = params;
+  
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const response = await axios.get(`/api/job/getJob/${id}`);
+        setJob(response.data);
+        setContent(response.data.jobDesc)
+      } catch (error) {
+        console.error("Error fetching job:", error);
+      }
+    };
+    
+    fetchJob();
+    
+  }, [id]);
 
-  const job = await fetchJob(id);
-  const desc = job.jobDesc;
+  const handleQuillChange = (value) => {
+    // Handle changes in ReactQuill
+    setContent(value);
+  };
+  
+  // const job = await fetchJob(id);
+  
   let imgUrl;
 
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const [previewImage, setPreviewImage] = useState(null);
-  // const [fileSizeError, setFileSizeError] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [fileSizeError, setFileSizeError] = useState("");
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
     // // Check for file size
-    // if (file.size > 2 * 1024 * 1024) {
-    //   setFileSizeError("File size exceeds the limit (2 MB).");
-    //   return;
-    // } else {
-    //   setFileSizeError("");
-    // }
+    if (file.size > 2 * 1024 * 1024) {
+      setFileSizeError("File size exceeds the limit (2 MB).");
+      return;
+    } else {
+      setFileSizeError("");
+    }
 
     // Set the selected file
     setSelectedFile(file);
@@ -39,10 +67,14 @@ const SingleJobPage = async ({ params }) => {
     // Create a preview URL for the selected file
     const previewURL = URL.createObjectURL(file);
     imgUrl = previewURL;
-    // setPreviewImage(previewURL);
+    setPreviewImage(previewURL);
   };
 
   // setValue(job.jobDesc);
+
+  if(!job){
+    return <Loading />
+  }
 
   return (
     <div className={styles.container}>
@@ -149,8 +181,16 @@ const SingleJobPage = async ({ params }) => {
             <input type="number" placeholder={job.maxSalary} name="maxSalary" />
           </div>
           <div className={styles.formInput}>
-            <label>Location</label>
-            <input type="text" placeholder={job.location} name="location" />
+            <label>Address</label>
+            <input type="text" placeholder={job.address} name="address" />
+          </div>
+          <div className={styles.formInput}>
+            <label>State</label>
+            <input type="text" placeholder={job.state} name="state" />
+          </div>
+          <div className={styles.formInput}>
+            <label>Country</label>
+            <input type="text" placeholder={job.country} name="country" />
           </div>
           <div className={styles.formInput}>
             <label>Workplace module</label>
@@ -184,11 +224,18 @@ const SingleJobPage = async ({ params }) => {
               </option>
             </select>
           </div>
+          <div className={styles.formInput}>
+            <label>Educational Qualification</label>
+            <input type="text" placeholder={job.educationQualification} name="educationQualification" />
+          </div>
+          <div className={styles.formInput}>
+            <label>Educational Specialization</label>
+            <input type="text" placeholder={job.educationSpecialization} name="educationSpecialization" />
+          </div>
           <input
             type="hidden"
-            placeholder={job.jobOpeningId}
-            value={job.jobOpeningId}
-            name="jobOpeningId"
+            value={id}
+            name="id"
           />
 
           {/* <div className={styles.formInput}>
@@ -200,19 +247,18 @@ const SingleJobPage = async ({ params }) => {
             />
           </div> */}
           {/* <input type="hidden" placeholder={job.jobDesc} value={value} name="jobDesc" /> */}
+          <div className={styles.formInput} style={{width: "100%"}}>
+
           <label>
-            Description:
-            <div
-              style={{ display: "block", color: "gray" }}
-              dangerouslySetInnerHTML={{ __html: desc }}
-            />
+            Job Description:
           </label>
-          <textarea
-            name="jobDesc"
-            id="jobDesc"
-            rows="10"
-            placeholder="Edit Description"
-          ></textarea>
+          <input type="hidden" placeholder="Job Description" value={content} name="jobDesc" />
+            <ReactQuill
+            theme="snow"
+            value={content}
+            onChange={handleQuillChange}
+            className={styles.quill} style={{marginBottom:"40px"}}/>
+            </div>
           <div className={styles.formInput}>
             <label>Company / Brand Name</label>
             <input
@@ -226,7 +272,7 @@ const SingleJobPage = async ({ params }) => {
             <input
               type="text"
               placeholder={job.companyWebsite}
-              name="companyName"
+              name="companyWebsite"
             />
           </div>
           <div className={styles.formInput}>
@@ -236,13 +282,15 @@ const SingleJobPage = async ({ params }) => {
               placeholder="Company Website"
               name="companyLogo"
               id="companyLogo"
-              // onChange={handleFileChange}
+              onChange={handleFileChange}
               // required
             />
           </div>
-          <div className={styles.formInput}>
+          <div className={styles.formInput} style={{display: "flex"}}>
             {/* Show the selected image preview */}
-            {job?.companyLogo && (
+            <div style={{display:"flex", justifyContent:"flex-start", alignItems:"center", gap:"10px"}}>
+
+            <label htmlFor="">Logo</label>{job?.companyLogo && (
               <Image
                 width="100"
                 height="50"
@@ -254,13 +302,32 @@ const SingleJobPage = async ({ params }) => {
                   alignContent: "start",
                 }}
               />
+              )}
+              </div>
+            
+            {previewImage && (
+              <div style={{display:"flex", justifyContent:"flex-start", alignItems:"center", gap:"10px"}}>
+                <label htmlFor="">New Logo</label>
+
+              <Image
+                width="100"
+                height="50"
+                src={previewImage}
+                alt="Selected Preview"
+                style={{
+                  maxWidth: "15%",
+                  justifyContent: "flex-start",
+                  alignContent: "start",
+                }}
+                />
+                </div>
             )}
             {/* {fileSizeError && <p style={{ color: "red" }}>{fileSizeError}</p>} */}
           </div>
 
           {/* <p style={{fontSize: "12px"}}>Description</p>
           <ReactQuill theme="snow" value={value} onChange={setValue} className={styles.quill}/>- */}
-          <button type="submit">Update</button>
+          <ButtonSeondary type="submit">Update</ButtonSeondary>
         </form>
       </div>
     </div>
