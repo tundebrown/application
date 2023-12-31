@@ -161,6 +161,7 @@ const filteredWorkItems = formDataArray
     employer,
     expectedSalary,
     currentSalary,
+    auth,
   } = Object.fromEntries(formData);
 
   // const actualFilePath = "/nofile.jpg";
@@ -204,12 +205,14 @@ const filteredWorkItems = formDataArray
     throw new Error(`Failed to create candidate! ${err}`);
   }
 
-  const currentPath = process.cwd();
+  if(auth === "true"){
 
-  console.log('current working directory:' , currentPath)
-
-  revalidatePath("/dashboard/candidates");
-  redirect("/dashboard/candidates");
+    revalidatePath("/dashboard/candidates");
+    redirect("/dashboard/candidates");
+  } else {
+    revalidatePath("/page/jobs/activejobs");
+    redirect("/page/jobs/activejobs");
+  }
 };
 
 
@@ -489,8 +492,6 @@ export const updateJob = async (formData) => {
   const res = await uploadPhoto(formData, "company_logo", "companyLogo", "auto")
 
   const actualFilePath = res.filename
-
-  console.log(actualFilePath)
 
   try {
     connectToDB();

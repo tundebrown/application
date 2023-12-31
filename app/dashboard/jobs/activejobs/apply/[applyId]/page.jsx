@@ -120,6 +120,11 @@ const SingleJobPage = async ({ params }) => {
               name="appliedJobs"
               value={job.id}
             />
+            <input
+              type="hidden"
+              name="auth"
+              value="true"
+            />
           <div className={styles.formInput}>
             <input
               type="text"
