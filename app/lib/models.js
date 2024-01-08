@@ -78,7 +78,7 @@ const candidateSchema = new mongoose.Schema(
     hiringStage: {
       type: String,
     },
-    appliedJobs: { type: mongoose.Schema.Types.ObjectId, ref: "Job"},
+    appliedJobs: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
     workExperience: {
       type: Array,
     },
@@ -273,41 +273,32 @@ const jobSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 const interviewSchema = new mongoose.Schema(
   {
     interviewName: {
       type: String,
       required: true,
     },
-    client: { type: mongoose.Schema.Types.ObjectId, ref: "Client"},
-    candidate: { type: mongoose.Schema.Types.ObjectId, ref: "Candidate"},
+    client: { type: mongoose.Schema.Types.ObjectId, ref: "Client" },
+    candidate: { type: mongoose.Schema.Types.ObjectId, ref: "Candidate" },
     postingTitle: {
       type: String,
+      required: true,
     },
-    fromDate: {
+    startTime: {
       type: Date,
       required: true,
     },
-    toDate: {
+    endTime: {
       type: Date,
       required: true,
-    },
-    interviewer: {
-      type: String,
     },
     location: {
       type: String,
       required: true,
     },
-    interviewOwner: {
-      type: String,
-    },
-    scheduleComments: {
-      type: String,
-      default: "Not available",
-    },
-    assessmentName: {
+    interviewOwner: { type: mongoose.Schema.Types.ObjectId, ref: "Candidate" },
+    comment: {
       type: String,
       default: "Not available",
     },
@@ -321,54 +312,67 @@ const interviewvideoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    candidate: { type: mongoose.Schema.Types.ObjectId, ref: "Candidate"},
+    candidate: { type: mongoose.Schema.Types.ObjectId, ref: "Candidate" },
+    client: { type: mongoose.Schema.Types.ObjectId, ref: "Client" },
     postingTitle: {
       type: String,
+      required: true,
     },
-    fromDate: {
+    startTime: {
       type: Date,
       required: true,
     },
-    toDate: {
+    endTime: {
       type: Date,
       required: true,
-    },
-    interviewer: {
-      type: String,
     },
     interviewOwner: {
       type: String,
+      required: true,
     },
-    scheduleComments: {
+    comment: {
       type: String,
       default: "Not available",
+      required: true,
     },
-    provider:{
+    provider: {
       type: String,
-    }
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
 const clientSchema = new mongoose.Schema(
   {
-    firstname: {
-      type: String,
-      required: true,
-    },
-    lastname: {
+    username: {
       type: String,
       required: true,
     },
     contactNumber: {
       type: String,
+      required: true,
     },
     accountManager: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    email: {
       type: String,
+      required: true,
     },
   },
   { timestamps: true }
 );
+
+const notificationSchema = new mongoose.Schema(
+  {
+    candidateId: {type: mongoose.Schema.Types.ObjectId, required:true},
+    message: {type: String, required: true},
+  },
+  { timestamps: true }
+)
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const Candidate =
@@ -376,6 +380,11 @@ export const Candidate =
 export const Product =
   mongoose.models.Product || mongoose.model("Product", productSchema);
 export const Job = mongoose.models.Job || mongoose.model("Job", jobSchema);
-export const Interview = mongoose.models.Interview || mongoose.model("Interview", interviewSchema);
-export const Interviewvideo = mongoose.models.Interviewvideo || mongoose.model("Interviewvideo", interviewvideoSchema);
-export const Client = mongoose.models.Client || mongoose.model("Client", clientSchema);
+export const Interview =
+  mongoose.models.Interview || mongoose.model("Interview", interviewSchema);
+export const Interviewvideo =
+  mongoose.models.Interviewvideo ||
+  mongoose.model("Interviewvideo", interviewvideoSchema);
+export const Client =
+  mongoose.models.Client || mongoose.model("Client", clientSchema);
+  export const Notification = mongoose.models.Notification || mongoose.model("Notification", notificationSchema);

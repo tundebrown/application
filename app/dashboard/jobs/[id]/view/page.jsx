@@ -27,6 +27,7 @@ import PipelineButton from "@/app/ui/widgets/pipelineButton/page";
 import MasterHiringPipeline from "@/app/ui/widgets/masterHiringPipeline/page";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Loading from "@/app/ui/widgets/loading/page";
+import Link from "next/link";
 
 const View = ({ params }) => {
   const [activeComponent, setActiveComponent] = useState("allCandidates");
@@ -280,8 +281,10 @@ const View = ({ params }) => {
             </span>
           </div>
           <div className={styles.submitCandidateButtons}>
-            <ButtonPrimary>Parse & Assign</ButtonPrimary>
-            <ButtonSeondary>Assign Candidates</ButtonSeondary>
+            {/* <ButtonPrimary>Parse & Assign</ButtonPrimary> */}
+            <Link href="/dashboard/interviews/add">
+            <ButtonSeondary><MdTimer/> Schedule Interview</ButtonSeondary>
+            </Link>
             <ButtonSeondary>Submit Candidates</ButtonSeondary>
           </div>
         </div>
@@ -360,28 +363,28 @@ const View = ({ params }) => {
               <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "contacted" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "interviewScheduled" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent}/>
             )}
             {activeComponent === "interviewNotAttended" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "interviewRescheduled" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "rejected" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "onHold" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "selected" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
             {activeComponent === "offered" && (
-              <MasterHiringPipeline stage={activeComponent} />
+              <MasterHiringPipeline candidates={data?.candidates} targetJobId={id} targetStage={activeComponent} />
             )}
           </div>
         </div>

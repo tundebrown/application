@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 const MenuLink = ({ item }) => {
   const pathname = usePathname();
   const page = pathname.split("/").pop()
-  console.log(pathname)
   {/* <div className={styles.title}>{pathname.split("/").pop()}</div> */}
 
   return (

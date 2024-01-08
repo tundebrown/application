@@ -60,9 +60,9 @@ const CandidatesPage = ({ searchParams }) => {
         </div>
         <div className={styles.filter}>
           <Search placeholder="Search for a candidate..." />
-          <button className={styles.addButton}>
-            <MdOutlineMenu />
-          </button>
+          <Link href="">
+          <ButtonSeondary><MdAdd/>Resume Parser</ButtonSeondary>
+          </Link>
           {/* <Link href="/dashboard/candidates/add">
             <button className={styles.addButton}>Add New Candidate</button>
           </Link> */}

@@ -11,24 +11,54 @@ const SingleUserPage = async () => {
   const { user } = await auth();
   const userData = await fetchUser(user.id);
 
+  // const [previewImage, setPreviewImage] = useState(null);
+  // const [fileSizeError, setFileSizeError] = useState("");
+
+  let error = "";
+  let imagePreview = "";
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    // Check for file size
+    if (file.size > 2 * 1024 * 1024) {
+      // setFileSizeError("File size exceeds the limit (2 MB).");
+      error = "File size exceeds the limit (2 MB).";
+      return;
+    } else {
+      // setFileSizeError("");
+      error = "";
+    }
+
+    // Set the selected file
+    setSelectedFile(file);
+
+    // Create a preview URL for the selected file
+    const previewURL = URL.createObjectURL(file);
+    // setPreviewImage(previewURL);
+    imagePreview = previewURL;
+    console.log("Image URL: ",imagePreview);
+  };
+
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.infoContainer}>
           <h3>Profile Settings</h3>
           <div className={styles.infoDataContainer}>
-          <div class={styles.avatarUpload}>
-                <div class={styles.avatarEdit}>
-                    <MdCameraAlt class={styles.avatarIcon}/>
+          <div className={styles.avatarUpload}>
+                <div className={styles.avatarEdit}>
+                    <MdCameraAlt className={styles.avatarIcon}/>
 
                   <form action="" method="post" id="form-image">
                     <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                    <label for="imageUpload"></label>
+                    <label htmlFor="imageUpload"></label>
                   </form>
                 </div>
                 <div class={styles.avatarPreview}>
 
-                  <Image width="100" height="100" class={styles.profileUserImg} id="imagePreview" src={userData.img || "/noavatar.png"} alt="User profile picture" />
+                  <Image width="100" height="100" className={styles.profileUserImg} id="imagePreview" src={userData.img || "/noavatar.png"} alt="User profile picture" />
                 </div>
               </div>
 

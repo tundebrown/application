@@ -1,5 +1,5 @@
 import { MdEmail, MdFileCopy, MdOutlineWork, MdPerson, MdSupervisedUserCircle } from "react-icons/md";
-import { Candidate, Job, Product, User } from "./models";
+import { Candidate, Job, Product, User, Interview, Interviewvideo } from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -154,7 +154,39 @@ export const fetchTotalCandidates = async () => {
     return { countCandidate };
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch total active jobs!", err);
+    throw new Error("Failed to fetch total active candidate!", err);
+  }
+};
+
+export const fetchTotalInterview = async () => {
+
+  try {
+    connectToDB();
+    const countInterview = await Interview.find().count();
+    // const users = await User.find({ username: { $regex: regex } })
+    // const count = await User.find({$and: [{ username: { $regex: regex }, }, { isAdmin: true }]} ).count();
+    // const users = await User.find({$and: [{ username: { $regex: regex }, }, { isAdmin: true }]})
+
+    return { countInterview };
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch total active interview!", err);
+  }
+};
+
+export const fetchTotalInterviewvideo = async () => {
+
+  try {
+    connectToDB();
+    const countInterviewvideo = await Interviewvideo.find().count();
+    // const users = await User.find({ username: { $regex: regex } })
+    // const count = await User.find({$and: [{ username: { $regex: regex }, }, { isAdmin: true }]} ).count();
+    // const users = await User.find({$and: [{ username: { $regex: regex }, }, { isAdmin: true }]})
+
+    return { countInterviewvideo };
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch total active interview video!", err);
   }
 };
 
@@ -164,6 +196,9 @@ export const fetchTotalCandidates = async () => {
 
   const { countJob } = await fetchTotalJobs();
   const { countCandidate } = await fetchTotalCandidates();
+  const { countInterview } = await fetchTotalInterview();
+  const { countInterviewvideo } = await fetchTotalInterviewvideo();
+  const totalInterview = countInterview + countInterviewvideo;
 
 
 export const cards = [
@@ -184,7 +219,7 @@ export const cards = [
   {
     id: 3,
     title: "Interviews",
-    number: 0,
+    number: totalInterview,
     icon: <MdSupervisedUserCircle />,
     color: "#006666",
   },

@@ -50,16 +50,25 @@
 
 .inputField select{
     width: 70%;
-    height: 30px;
-    border: 2px solid rgb(191, 193, 201);
+    height: 40px;
+    border: 1px solid rgb(191, 193, 201);
     border-radius: 5px;
 }
 
 .inputField input{
     width: 70%;
-    height: 30px;
-    border: 2px solid rgb(191, 193, 201);
+    height: 40px;
+    border: 1px solid rgb(191, 193, 201);
     border-radius: 5px;
+}
+
+.select{
+    width:70%;
+}
+
+.select input{
+    width: 100%;
+    height: 30px;
 }
 
 .inputField .date{

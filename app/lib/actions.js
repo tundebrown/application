@@ -205,6 +205,8 @@ const filteredWorkItems = formDataArray
     throw new Error(`Failed to create candidate! ${err}`);
   }
 
+  
+
   if(auth === "true"){
 
     revalidatePath("/dashboard/candidates");

@@ -23,6 +23,7 @@ import CandidateHistory from "@/app/ui/widgets/candidateHistory/page";
 import Loading from "@/app/ui/widgets/loading/page";
 import axios from "axios";
 import ButtonSeondary from "@/app/ui/widgets/buttonSecondary/page";
+import Link from "next/link";
 
 const View = ({params}) => {
     const dropdownOptions = ['Applied', 'Interview Scheduled', 'Interview Not Attended', 'Interview Rescheduled', 'Rejected', 'On Hold', 'Selected', 'Offered'];
@@ -86,7 +87,6 @@ const View = ({params}) => {
           </ButtonLight>
           <IconButton><MdEdit title="Edit Candidate"/></IconButton>
               <IconButton><MdDelete title="Delete Candidate"/></IconButton>
-              <IconButton><MdWork title="Assign Candidate to a Job"/></IconButton>
         </div>
       </div>
       <div className={styles.jobTitleContainer}>
@@ -114,7 +114,9 @@ const View = ({params}) => {
             <span>Current Stage: </span> <span style={{color: "#0066cc"}}>{candidate.hiringStage}</span>
           </div>
           <div className={styles.date}>
+            <Link href="/dashboard/interviews/add">
           <ButtonPrimary><MdSchedule /> Schedule an Interview</ButtonPrimary>
+            </Link>
           <ButtonSeondary><MdAssignmentInd /> Assign Candidate to Job</ButtonSeondary>
           {/* <DropdownButton options={dropdownOptions}>Assign Candidate <MdOutlineKeyboardArrowDown /></DropdownButton> */}
           </div>
