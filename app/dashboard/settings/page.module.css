@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  color: rgb(68, 68, 68);
+}
+
+.header {
+  padding: 20px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.subContent {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.subContent > :nth-child(1) .itemIcon {
+  color: #339933;
+}
+
+.subContent > :nth-child(1) .itemIcon:hover {
+  border-color: #339933;
+}
+
+.subContent > :nth-child(2) .itemIcon {
+  color: #990099;
+}
+
+.subContent > :nth-child(2) .itemIcon:hover {
+  border-color: #990099;
+}
+
+.subContent2 {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.subContent2 > :nth-child(1) .itemIcon {
+  color: #0066ff;
+}
+
+.subContent2 > :nth-child(1) .itemIcon:hover {
+  border-color: #0066ff;
+}
+
+.subContent2 > :nth-child(2) .itemIcon {
+  color: #cc0066;
+}
+
+.subContent2 > :nth-child(2) .itemIcon:hover {
+  border-color: #cc0066;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  align-items: center;
+  gap: 5px;
+}
+
+.subContent3 {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+  }
+  
+  .subContent3 > :nth-child(1) .itemIcon {
+    color: #cc9900;
+  }
+  
+  .subContent3 > :nth-child(1) .itemIcon:hover {
+    border-color: #cc9900;
+  }
+  
+  .subContent3 > :nth-child(2) .itemIcon {
+    color: #003366;
+  }
+  
+  .subContent3 > :nth-child(2) .itemIcon:hover {
+    border-color: #003366;
+  }
+
+  .subContent3 > :nth-child(3) .itemIcon {
+    color: #006666;
+  }
+  
+  .subContent3 > :nth-child(3) .itemIcon:hover {
+    border-color: #006666;
+  }
+  
+  .itemContainer {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    align-items: center;
+    gap: 5px;
+  }
+
+.itemContainer span {
+  font-size: 12px;
+  font-weight: 600;
+  color: gray;
+}
+
+.itemIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgb(216, 216, 216);
+  font-size: 20px;
+}
+
+.itemIcon:hover {
+  cursor: pointer;
+}

@@ -49,7 +49,7 @@
 }
 
 .stage{
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     border-radius: 5px;
@@ -61,10 +61,14 @@
     gap: 5px;
 }
 
+.stage > :nth-child(1) {
+    font-size:12px;
+  }
+
 .stage > :nth-child(2) {
-    /* Your styles go here */
     color: rgb(6, 78, 14);
     font-weight: 700;
+    font-size: 13px;
   }
 
 .copy{

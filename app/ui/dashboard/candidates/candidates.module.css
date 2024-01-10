@@ -79,21 +79,31 @@
   }
   
   .button{
-    padding: 5px 10px;
-    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
     color: var(--bgSoft);
-    border: none;
+    border: 1px solid rgb(205, 205, 205);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    font-size: 11px;
+  }
+
+  .button:hover{
+    border-color: gray;
   }
   
   .view{
-    background-color: teal;
+    color: teal;
   }
   
   .edit{
-    background-color: rgb(49, 78, 132);
+    color: rgb(49, 78, 132);
   }
   
   .delete{
-    background-color: crimson;
+    color: crimson;
   }

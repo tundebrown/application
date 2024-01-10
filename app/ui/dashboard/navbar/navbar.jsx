@@ -84,8 +84,10 @@ const Navbar = async () => {
         </div>
         <div className={styles.icons}>
           <MdOutlineCalendarMonth size={20} />
-          <MdNotifications size={20} />
+          <Link href='/dashboard/settings'>
           <MdOutlineSettings size={20} />
+          </Link>
+          <MdNotifications size={20} />
           {/* <MdOutlineSupervisedUserCircle size={20} /> */}
           <div className={styles.user}>
             <Link href="/dashboard/profile">

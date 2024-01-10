@@ -27,9 +27,8 @@ const userSchema = new mongoose.Schema(
     img: {
       type: String,
     },
-    isAdmin: {
-      type: Boolean,
-      default: true,
+    role: {
+      type: String,
     },
     phone: {
       type: Number,
@@ -41,9 +40,6 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     country: {
-      type: String,
-    },
-    role: {
       type: String,
     },
     timezone: {
