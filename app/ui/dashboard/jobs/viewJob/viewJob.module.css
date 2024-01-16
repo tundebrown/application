@@ -27,6 +27,7 @@
     padding: 20px;
     border-bottom: 1px solid rgb(174, 174, 174);
     background-color: white;
+    flex: 1;
 }
 
 .jobTitleContent{
@@ -77,6 +78,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     gap: 20px;
+    flex: 1;
 }
 
 .owner{
@@ -179,7 +181,6 @@
     align-items: center;
     background-color: rgb(225, 225, 235);
     padding: 10px 0;
-
 }
 
 
@@ -190,7 +191,8 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    
+    height: 200%;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.491);
   }
 
@@ -200,6 +202,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
   }
 
   .modalContainer{
@@ -230,3 +233,78 @@
     top: 15%;
     right: 25%;
   }
+
+.subTitle{
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(69, 69, 69);
+}
+
+.formContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding-right: 50px;
+    margin-bottom: 20px;
+}
+
+.leftpane{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rightpane{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.inputField{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+}
+
+.inputField label{
+    width: 30%;
+    text-align: right;
+    font-size: 13px;
+}
+
+.inputField select{
+    width: 70%;
+    height: 40px;
+    border: 1px solid rgb(191, 193, 201);
+    border-radius: 5px;
+}
+
+.inputField input{
+    width: 70%;
+    height: 40px;
+    border: 1px solid rgb(191, 193, 201);
+    border-radius: 5px;
+}
+
+.select{
+    width:70%;
+}
+
+.select input{
+    width: 100%;
+    height: 30px;
+}
+
+.inputField .date{
+    width: 25%;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+}

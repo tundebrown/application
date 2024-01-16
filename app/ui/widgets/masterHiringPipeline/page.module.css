@@ -1,86 +1,86 @@
-.container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.wrapper{
-    width: 70%;
-    border: 1px solid rgb(193, 193, 193);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
+.wrapper {
+  width: 70%;
+  border: 1px solid rgb(193, 193, 193);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
 }
 
-.wrapper:hover{
-    box-shadow: 1px 1px 2px 5px rgb(217, 217, 234);
-    border: 1px solid rgb(158, 158, 234);
+.wrapper:hover {
+  box-shadow: 1px 1px 2px 5px rgb(217, 217, 234);
+  border: 1px solid rgb(158, 158, 234);
 }
 
-.icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: aqua;
-    color: rgb(68, 130, 130);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+  color: rgb(68, 130, 130);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
-.resume{
-    color: rgb(14, 14, 126);
-    font-size: 24px;
-    cursor: pointer;
-    flex: 1;
+.resume {
+  color: rgb(14, 14, 126);
+  font-size: 24px;
+  cursor: pointer;
+  flex: 1;
 }
 
-.phone{
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    flex: 2;
+.phone {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
 }
 
-.stage{
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    padding: 5px 0;
-    font-size: 14px;
-    border: 1px solid gray;
-    background-color: rgb(240, 255, 252);
-    color: rgb(63, 63, 63);
-    gap: 5px;
+.stage {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-size: 14px;
+  border: 1px solid gray;
+  background-color: rgb(240, 255, 252);
+  color: rgb(63, 63, 63);
+  gap: 5px;
 }
 
 .stage > :nth-child(1) {
-    font-size:12px;
-  }
+  font-size: 12px;
+}
 
 .stage > :nth-child(2) {
-    color: rgb(6, 78, 14);
-    font-weight: 700;
-    font-size: 13px;
-  }
-
-.copy{
-    cursor: pointer;
+  color: rgb(6, 78, 14);
+  font-weight: 700;
+  font-size: 13px;
 }
 
-.copy:hover{
-    color: rgb(113, 0, 243);
+.copy {
+  cursor: pointer;
 }
 
-.detailsContainer{
-    display: flex;
-    gap: 10px;
-    flex: 3;
+.copy:hover {
+  color: rgb(113, 0, 243);
+}
+
+.detailsContainer {
+  display: flex;
+  gap: 10px;
+  flex: 3;
 }

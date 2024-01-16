@@ -1,6 +1,7 @@
 import { Candidate } from "@/app/lib/models";
 import { connectToDB } from "@/app/lib/utils";
 
+
 export default async function handler(req, res) {
   const { q, page } = req.query;
   const regex = new RegExp(q, "i");
